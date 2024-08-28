@@ -40,7 +40,7 @@ fun RecipeRepositoryScreen(
 
     //북마크한 레시피 보여주는 UI
     Column(modifier = Modifier.background(WhisperColor)) {
-        TopBar(title = "유튜브 보관함")
+        TopBar(title = "영상 보관함")
         HorizontalDivider(color = Color.LightGray.copy(0.3f))
         Spacer(modifier = Modifier.height(MyRecipeTheme.dimens.spacerLarge))
         LazyColumn {
