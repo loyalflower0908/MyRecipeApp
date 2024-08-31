@@ -50,6 +50,10 @@
 - **[TypeSafeNavigationCompose](https://developer.android.com/guide/navigation/design/type-safety)**: 앱 내 화면 전환을 관리하고, 안전한 네비게이션을 구현
 - **MVVM 패턴**: MVVM 아키텍처 패턴을 사용하여 UI 데이터를 관리합니다.
 
+&nbsp;
+
+&nbsp;
+
 ## 📌 느낀점 📌
 
 이렇게 규격에 맞춰서 정리하며 프로젝트를 진행하는것은 처음이다.
@@ -67,3 +71,5 @@
 또한 지금까지 코딩 인생을 뒤돌아볼 수 있는 계기가 되었다...
 
 정리하지 않고 화려한 UI와 재밌는 기능에만 심취했었던것 같다. 정리와 구조같은 기반이 중요함을 느꼈다.
+
+<br>
