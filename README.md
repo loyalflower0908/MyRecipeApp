@@ -6,6 +6,8 @@
 
 심플한 UI로 사용하기 쉽게 직관적으로 만들려고 했습니다.
 
+태블릿 화면 크기일 경우, 화면에 맞춰 UI 크기가 조정되게 하였습니다.
+
 &nbsp;
 
 &nbsp;
@@ -73,3 +75,17 @@
 정리하지 않고 화려한 UI와 재밌는 기능에만 심취했었던것 같다. 정리와 구조같은 기반이 중요함을 느꼈다.
 
 <br>
+
+<br>
+
+## + 태블릿 스크린샷
+
+
+<img src="https://github.com/loyalflower0908/MyRecipeApp/blob/master/screenshot/RecipeListTablet.png" width="90%" height="90%" style="margin: 0 10px;">
+<img src="https://github.com/loyalflower0908/MyRecipeApp/blob/master/screenshot/ShoppingListTablet.png" width="90%" height="90%" style="margin: 0 10px;">
+
+<div style="display: flex; flex-direction: row;">
+    <img src="https://github.com/loyalflower0908/MyRecipeApp/blob/master/screenshot/RecipeScreenSero.png" width="45%" height="45%" style="margin: 0 10px;">
+    <img src="https://github.com/loyalflower0908/MyRecipeApp/blob/master/screenshot/VideoListTabletSero.png" width="45%" height="45%" style="margin: 0 10px;">
+</div>
+
