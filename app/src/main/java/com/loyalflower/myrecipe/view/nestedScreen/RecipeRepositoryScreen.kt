@@ -51,6 +51,7 @@ fun RecipeRepositoryScreen(
                     onClick = {
                         val url = "https://www.youtube.com/watch?v=${recipe.id}"
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                        .apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
                         context.startActivity(intent)
                     },
                     onFavoriteClick = { isFavorite ->
