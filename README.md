@@ -89,3 +89,6 @@
     <img src="https://github.com/loyalflower0908/MyRecipeApp/blob/master/screenshot/VideoListTabletSero.png" width="45%" height="45%" style="margin: 0 10px;">
 </div>
 
+_____________________________________________________
+### 🕐 개발 기간 🕐
+2024.08 ~ 09 (1달)
