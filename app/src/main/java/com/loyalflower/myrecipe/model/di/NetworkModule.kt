@@ -40,7 +40,7 @@ object NetworkModule {
         youTubeApiService: YouTubeApiService,
         recipeDao: SearchRecipeDao
     ): SearchRecipeRepositoryImpl {
-        val apiKey = "Your API Key"
+        val apiKey = "Your Youtube API Key"
         return SearchRecipeRepositoryImpl(
             youTubeApiService,
             recipeDao,
