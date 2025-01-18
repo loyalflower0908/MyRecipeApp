@@ -60,6 +60,8 @@
 
 <details>
   <summary>첫 커밋 느낀 점(V1.0)</summary>
+
+  <br>
   
     이렇게 규격에 맞춰서 정리하며 프로젝트를 진행하는것은 처음이다.
     
@@ -80,7 +82,9 @@
 </details>
 
 <details>
-  <summary>두 번째 커밋 느낀 점(V1.1)</summary>
+  <summary>두 번째 커밋 느낀 점(V1.1 / 25.01.18)</summary>
+
+<br>
 
   MVC, MVP 프로젝트를 하고 돌아오니까 이 MVVM 프로젝트의 부족함을 많이 느낀다.
 
