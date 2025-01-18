@@ -4,8 +4,11 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.loyalflower.myrecipe.model.apiService.YouTubeApiService
 import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeDao
 import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeDatabase
+import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeRepository
+import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +22,8 @@ object SearchRecipeModule {
 
     private val MIGRATION_3_4 = object : Migration(3, 4) {
         override fun migrate(db: SupportSQLiteDatabase) {
-            db.execSQL("""
+            db.execSQL(
+                """
             CREATE TABLE search_recipe_new (
                 id TEXT PRIMARY KEY NOT NULL,
                 title TEXT NOT NULL,
@@ -28,12 +32,15 @@ object SearchRecipeModule {
                 publishDate TEXT NOT NULL,
                 channelName TEXT NOT NULL
             )
-        """)
+        """
+            )
 
-            db.execSQL("""
+            db.execSQL(
+                """
             INSERT INTO search_recipe_new (id, title, thumbnailUrl, description, publishDate, channelName)
             SELECT id, title, thumbnailUrl, description, 'unknown', 'unknown' FROM search_recipe
-        """)
+        """
+            )
 
             db.execSQL("DROP TABLE search_recipe")
 
@@ -54,5 +61,16 @@ object SearchRecipeModule {
     @Provides
     fun provideSearchRecipeDao(database: SearchRecipeDatabase): SearchRecipeDao {
         return database.searchRecipeDao()
+    }
+
+    // SearchRepository 구현체 제공
+    @Provides
+    @Singleton
+    fun provideSearchRepository(
+        youTubeApiService: YouTubeApiService,
+        searchRecipeDao: SearchRecipeDao,
+        apiKey: String
+    ): SearchRecipeRepository {
+        return SearchRecipeRepositoryImpl(youTubeApiService, searchRecipeDao, apiKey)
     }
 }

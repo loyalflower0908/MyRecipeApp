@@ -33,14 +33,21 @@ object NetworkModule {
         return retrofit.create(YouTubeApiService::class.java)
     }
 
+    // apiKey를 네트워크 모듈 내에서 제공
+    @Provides
+    @Singleton
+    fun provideApiKey(): String {
+        return "Your YouTube API Key" // 실제 API 키를 입력하세요
+    }
+
     //SearchRecipeRepositoryImpl 객체를 생성해서 필요 값 제공
     @Provides
     @Singleton
     fun provideRecipeRepository(
         youTubeApiService: YouTubeApiService,
-        recipeDao: SearchRecipeDao
+        recipeDao: SearchRecipeDao,
+        apiKey:String
     ): SearchRecipeRepositoryImpl {
-        val apiKey = "Your API Key"
         return SearchRecipeRepositoryImpl(
             youTubeApiService,
             recipeDao,

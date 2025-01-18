@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingListDao
 import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingListDatabase
+import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingListRepository
+import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingListRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,5 +30,12 @@ object ShoppingListModule {
     @Provides
     fun provideShoppingListDao(database: ShoppingListDatabase): ShoppingListDao {
         return database.shoppingListDao()
+    }
+
+    // ShoppingListRepository 구현체 제공
+    @Provides
+    @Singleton
+    fun provideShoppingListRepository(shoppingListDao: ShoppingListDao): ShoppingListRepository {
+        return ShoppingListRepositoryImpl(shoppingListDao)
     }
 }

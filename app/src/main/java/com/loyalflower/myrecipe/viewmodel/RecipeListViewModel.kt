@@ -4,6 +4,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.loyalflower.myrecipe.model.data.recipe.RecipeEntity
+import com.loyalflower.myrecipe.model.data.recipe.RecipeRepository
 import com.loyalflower.myrecipe.model.data.recipe.RecipeRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RecipeListViewModel @Inject constructor(private val repository: RecipeRepositoryImpl) :
+class RecipeListViewModel @Inject constructor(private val repository: RecipeRepository) :
     ViewModel() {
 
         //모든 레시피

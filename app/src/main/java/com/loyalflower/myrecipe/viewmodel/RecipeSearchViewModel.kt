@@ -4,6 +4,7 @@ package com.loyalflower.myrecipe.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeEntity
+import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeRepository
 import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RecipeSearchViewModel @Inject constructor(private val repository: SearchRecipeRepositoryImpl) : ViewModel() {
+class RecipeSearchViewModel @Inject constructor(private val repository: SearchRecipeRepository) : ViewModel() {
     //레시피의 즐겨 찾기값 상태
     private val _recipeFavorites = MutableStateFlow<Map<String, Boolean>>(emptyMap())
     val recipeFavorites: StateFlow<Map<String, Boolean>> get() = _recipeFavorites

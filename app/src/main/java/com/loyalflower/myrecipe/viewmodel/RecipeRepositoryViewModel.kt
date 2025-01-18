@@ -3,6 +3,7 @@ package com.loyalflower.myrecipe.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeEntity
+import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeRepository
 import com.loyalflower.myrecipe.model.data.searchRecipe.SearchRecipeRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -12,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RecipeRepositoryViewModel @Inject constructor(private val repository: SearchRecipeRepositoryImpl) : ViewModel() {
+class RecipeRepositoryViewModel @Inject constructor(private val repository: SearchRecipeRepository) : ViewModel() {
 
     // 모든 즐겨찾기 레시피를 가져오는 StateFlow
     val favoriteRecipes: StateFlow<List<SearchRecipeEntity>> = repository.getAllRecipes()

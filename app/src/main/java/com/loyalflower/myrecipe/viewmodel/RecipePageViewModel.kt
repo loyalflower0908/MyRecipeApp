@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
@@ -14,6 +16,7 @@ import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.loyalflower.myrecipe.model.data.recipe.RecipeEntity
+import com.loyalflower.myrecipe.model.data.recipe.RecipeRepository
 import com.loyalflower.myrecipe.model.data.recipe.RecipeRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,7 +28,7 @@ import java.io.FileNotFoundException
 import javax.inject.Inject
 
 @HiltViewModel
-class RecipePageViewModel @Inject constructor(private val repository: RecipeRepositoryImpl):ViewModel() {
+class RecipePageViewModel @Inject constructor(private val repository: RecipeRepository):ViewModel() {
 
     //쓰기 모드인 지 파악
     private val _writingMode = MutableStateFlow(true)
@@ -117,6 +120,7 @@ class RecipePageViewModel @Inject constructor(private val repository: RecipeRepo
     }
 
     //재료 삭제
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
     fun deleteIngredient() {
         _ingredients.removeLast()
     }
@@ -128,6 +132,7 @@ class RecipePageViewModel @Inject constructor(private val repository: RecipeRepo
     }
 
     //조리 순서 삭제
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
     fun deleteInstruction(){
         _instructions.removeLast()
     }

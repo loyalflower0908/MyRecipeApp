@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.loyalflower.myrecipe.model.utils.DateUtils
 import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingItem
 import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingListEntity
+import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingListRepository
 import com.loyalflower.myrecipe.model.data.shoppingList.ShoppingListRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +21,7 @@ import java.util.UUID
 import javax.inject.Inject
 
 @HiltViewModel
-class ShoppingListViewModel @Inject constructor(private val repository: ShoppingListRepositoryImpl) :
+class ShoppingListViewModel @Inject constructor(private val repository: ShoppingListRepository) :
     ViewModel() {
 
     //오늘 살 것 리스트

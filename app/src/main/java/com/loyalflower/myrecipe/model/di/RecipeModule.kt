@@ -6,6 +6,8 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.loyalflower.myrecipe.model.data.recipe.RecipeDao
 import com.loyalflower.myrecipe.model.data.recipe.RecipeDatabase
+import com.loyalflower.myrecipe.model.data.recipe.RecipeRepository
+import com.loyalflower.myrecipe.model.data.recipe.RecipeRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,5 +39,12 @@ object RecipeModule {
     @Provides
     fun provideRecipeDao(database: RecipeDatabase): RecipeDao {
         return database.recipeDao()
+    }
+
+    // RecipeRepository 구현체 제공
+    @Provides
+    @Singleton
+    fun provideRecipeRepository(recipeDao: RecipeDao): RecipeRepository {
+        return RecipeRepositoryImpl(recipeDao)
     }
 }
